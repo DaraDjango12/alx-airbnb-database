@@ -31,3 +31,34 @@ EXPLAIN
 SELECT *
 FROM bookings
 WHERE check_in_date BETWEEN '2025-04-01' AND '2025-06-30';
+
+
+
+
+
+---------------------------------
+EXPLAIN ANALYZE
+SELECT 
+    booking_id,
+    user_id,
+    property_id,
+    check_in_date,
+    check_out_date
+FROM bookings
+WHERE check_in_date BETWEEN '2025-04-01' AND '2025-06-30';
+
+
+
+
+EXPLAIN ANALYZE
+SELECT 
+    booking_id,
+    user_id,
+    property_id,
+    check_in_date,
+    check_out_date
+FROM bookings_old
+WHERE check_in_date BETWEEN '2025-04-01' AND '2025-06-30';
+
+SELECT * FROM pg_stat_statements
+WHERE query LIKE '%FROM bookings%';
