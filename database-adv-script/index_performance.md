@@ -41,3 +41,30 @@ FROM users u
 JOIN bookings b ON u.user_id = b.user_id
 GROUP BY u.user_id
 HAVING COUNT(*) > 3;
+
+
+
+MOst frequently used columns
+| Column       | Usage Type      | Reason / Example Use Case                 |
+| ------------ | --------------- | ----------------------------------------- |
+| `user_id`    | `JOIN`, `WHERE` | Primary key, used to join with `bookings` |
+| `email`      | `WHERE`         | Used for login/authentication filters     |
+| `created_at` | `ORDER BY`      | Sorting users by registration date        |
+
+
+| Column          | Usage Type          | Reason / Example Use Case                  |
+| --------------- | ------------------- | ------------------------------------------ |
+| `booking_id`    | `WHERE`             | Fetch/edit specific booking                |
+| `user_id`       | `JOIN`, `WHERE`     | Connects to `users` table                  |
+| `property_id`   | `JOIN`, `WHERE`     | Connects to `properties` table             |
+| `check_in_date` | `WHERE`, `ORDER BY` | Frequently filtered in date-range searches |
+| `booking_date`  | `ORDER BY`          | Sort recent bookings                       |
+| `status`        | `WHERE`             | Used to filter active/cancelled bookings   |
+
+
+| Column            | Usage Type          | Reason / Example Use Case                            |
+| ----------------- | ------------------- | ---------------------------------------------------- |
+| `property_id`     | `JOIN`, `WHERE`     | Primary key; used to join with `bookings`, `reviews` |
+| `property_name`   | `WHERE`, `ORDER BY` | Searching or sorting by name                         |
+| `location`        | `WHERE`             | Filter by city, country, etc.                        |
+| `price_per_night` | `WHERE`, `ORDER BY` | Sort/filter affordable properties                    |
