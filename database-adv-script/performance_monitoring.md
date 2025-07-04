@@ -18,3 +18,10 @@ FROM pg_stat_statements
 WHERE query LIKE '%bookings%'
 ORDER BY total_time DESC
 LIMIT 5;
+
+
+BOTTLENECKS
+Missing Indexes on Join or Filter Columns ------>> -- Indexes to speed up JOINs and WHERE filters
+Large Table Scans on Bookings Without Partition Pruning  ------>> Ensure partitioning uses the same column as in the query filter
+Inefficient Join Strategies ------>>  Index the join keys (as above)  Optionally rewrite query for better ordering or add limits if needed
+Over-fetching Data (No LIMIT or Pagination) ------>> Use LIMIT or OFFSET for user-facing 
