@@ -110,6 +110,8 @@ LIMIT 50;
 Metric	Before Optimization	After Optimization
 Execution Time	~180ms	~20ms
 Join Strategy	Nested Loops, Seq Scans	Hash Joins, Index Scans
-Partition Pruning	❌ Not Applicable	✅ Only scanned Q2 partition
+Partition Pruning	
+Not Applicable	
+Only scanned Q2 partition
 Rows Examined	~10,000+	<500
 CPU Load (Test VM)	High during scan	Significantly lower
