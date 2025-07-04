@@ -1,3 +1,4 @@
+-- INNER JOIN for MySQL
 SELECT 
     bookings.booking_id,
     bookings.property_id,
@@ -10,6 +11,8 @@ FROM bookings
 INNER JOIN users ON bookings.user_id = users.user_id;
 
 
+
+-- LEFT JOIN for MySQL
 SELECT 
     properties.property_id,
     properties.property_name,
@@ -19,6 +22,7 @@ SELECT
 FROM properties
 LEFT JOIN reviews ON properties.property_id = reviews.property_id;
 
+-- FULL OUTER JOIN for MySQL
 
 SELECT 
     users.user_id,
@@ -31,7 +35,7 @@ FROM users
 FULL OUTER JOIN bookings ON users.user_id = bookings.user_id;
 
 
--- Simulated FULL OUTER JOIN for MySQL
+-- FULL OUTER JOIN for MySQL
 SELECT 
     users.user_id,
     users.first_name,
