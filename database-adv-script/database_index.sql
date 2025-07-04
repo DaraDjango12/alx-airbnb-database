@@ -51,6 +51,22 @@ ORDER BY b.check_in_date;
 CREATE INDEX idx_bookings_user_id ON bookings(user_id);
 CREATE INDEX idx_bookings_property_id ON bookings(property_id);
 
+EXPLAIN ANALYZE
+-- [SELECT 
+  --  b.booking_id,
+   -- u.first_name,
+   -- p.property_name,
+   -- b.check_in_date
+--FROM bookings b
+--JOIN users u ON b.user_id = u.user_id
+--JOIN properties p ON b.property_id = p.property_id
+--WHERE b.check_in_date BETWEEN '2025-07-01' AND '2025-07-31'
+--ORDER BY b.check_in_date;
+-- User and property IDs for join efficiency
+--CREATE INDEX idx_bookings_user_id ON bookings(user_id);
+--CREATE INDEX idx_bookings_property_id ON bookings(property_id);
+--]
+
 -- Index for date filter
 CREATE INDEX idx_bookings_check_in_date ON bookings(check_in_date);
 
