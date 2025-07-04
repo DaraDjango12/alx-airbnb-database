@@ -13,12 +13,6 @@ INNER JOIN users ON bookings.user_id = users.user_id;
 
 
 -- LEFT JOIN for MySQL
--- Sample data
-INSERT INTO properties (property_id, property_name) VALUES (1, 'Villa Sunset'), (2, 'Ocean View'), (3, 'Forest Cabin');
-
-INSERT INTO reviews (review_id, property_id, rating, comment) VALUES (101, 1, 5, 'Perfect!'), (102, 1, 4, 'Nice place'), (103, 2, 3, 'Okay');
-
--- Run the query
 SELECT 
     properties.property_id,
     properties.property_name,
@@ -26,7 +20,9 @@ SELECT
     reviews.rating,
     reviews.comment
 FROM properties
-LEFT JOIN reviews ON properties.property_id = reviews.property_id;
+LEFT JOIN reviews ON properties.property_id = reviews.property_id
+ORDER BY properties.property_id;
+
 
 
 -- FULL OUTER JOIN for MySQL
